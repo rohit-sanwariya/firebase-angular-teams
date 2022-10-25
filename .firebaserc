@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "fir-angular-teams": {
+      "hosting": {
+        "firebase-angular-teams": [
+          "fir-angular-teams"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "fir-angular-teams"
+  }
+}

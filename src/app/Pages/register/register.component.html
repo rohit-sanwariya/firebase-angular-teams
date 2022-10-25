@@ -1,0 +1,83 @@
+<div class="container">
+  <form [formGroup]="_auth.registerForm">
+    <mat-card  class="card">
+      <mat-form-field>
+        <mat-label> Username </mat-label>
+        <input type="email" matInput formControlName="username" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label> Email </mat-label>
+        <input type="email" matInput formControlName="email" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label> Password </mat-label>
+        <div class="password-container">
+          <input
+            [type]="visibility ? 'password' : 'text'"
+            matInput
+            formControlName="password"
+          />
+          <mat-icon (click)="visibility = !visibility">
+            {{ visibility ? "visibility" : "visibility_off" }}
+          </mat-icon>
+        </div>
+
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Confirm Password</mat-label>
+        <div class="password-container">
+          <input
+            [type]="visibilityConfirm ? 'password' : 'text'"
+            matInput
+            formControlName="confirmPassword"
+          />
+          <mat-icon (click)="visibilityConfirm = !visibilityConfirm">
+            {{ visibilityConfirm ? "visibility" : "visibility_off" }}
+          </mat-icon>
+        </div>
+
+        <mat-error *ngIf="_auth.registerForm.get('confirmPassword')?.touched">
+          <span *ngIf="_auth.registerForm.get('confirmPassword')?.hasError('passwordNotEqual')">
+            Confirm Password Should Match Password
+          </span>
+        </mat-error>
+      </mat-form-field>
+      <div>
+        <button
+          color="accent"
+          type="button"
+          mat-raised-button
+          (click)="fileInput.click()"
+        >
+          <mat-icon>account_box</mat-icon>Choose File
+        </button>
+        <input
+          hidden
+          (change)="_auth.onFileSelected($event)"
+          #fileInput
+          type="file"
+        />
+        <span class="file-name">{{
+          _auth.selectedFile && _auth.selectedFile.name
+        }}</span>
+      </div>
+      <div>
+        <span>
+          Already a User <a [routerLink]="['', 'login']"> Sign In </a>
+        </span>
+      </div>
+
+      <button
+        [disabled]="
+          _auth.registerForm.invalid
+        "
+        mat-flat-button
+        color="primary"
+        (click)="_auth.emailSignUp()"
+      >
+        Sign Up
+      </button>
+    </mat-card>
+  </form>
+</div>
