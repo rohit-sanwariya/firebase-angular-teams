@@ -4,10 +4,20 @@
       <mat-form-field>
         <mat-label> Username </mat-label>
         <input type="email" matInput formControlName="username" />
+        <mat-error>
+          <span *ngIf="_auth.registerForm.get('username')?.getError('required')">
+           Username is Required
+          </span>
+        </mat-error>
       </mat-form-field>
       <mat-form-field>
         <mat-label> Email </mat-label>
         <input type="email" matInput formControlName="email" />
+        <mat-error>
+          <span *ngIf="_auth.registerForm.get('email')?.getError('required')">
+            Email is Required
+          </span>
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field>
@@ -22,7 +32,11 @@
             {{ visibility ? "visibility" : "visibility_off" }}
           </mat-icon>
         </div>
-
+        <mat-error>
+          <span *ngIf="_auth.registerForm.get('password')?.hasError('required')">
+            Password is Required
+          </span>
+        </mat-error>
       </mat-form-field>
       <mat-form-field>
         <mat-label>Confirm Password</mat-label>
@@ -37,10 +51,14 @@
           </mat-icon>
         </div>
 
-        <mat-error *ngIf="_auth.registerForm.get('confirmPassword')?.touched">
+        <mat-error >
           <span *ngIf="_auth.registerForm.get('confirmPassword')?.hasError('passwordNotEqual')">
             Confirm Password Should Match Password
           </span>
+          <span *ngIf="_auth.registerForm.get('confirmPassword')?.hasError('required')">
+            Confirm Password is required.
+          </span>
+
         </mat-error>
       </mat-form-field>
       <div>

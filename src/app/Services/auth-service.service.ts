@@ -51,11 +51,11 @@ export class AuthService {
       username: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
-      confirmPassword: ['', [Validators.required,]]
+      confirmPassword: ['', [Validators.required]]
     })
-    this.registerForm.get('confirmPassword')!.setValidators(EqualityPassword(
+    this.registerForm.get('confirmPassword')!.addValidators(EqualityPassword(
       this.registerForm.get('password') as AbstractControl<any, any | null>));
-    this.registerForm.get('password')!.setValidators(EqualityPassword(
+    this.registerForm.get('password')!.addValidators(EqualityPassword(
       this.registerForm.get('password') as AbstractControl<any, any | null>));
 
   }
