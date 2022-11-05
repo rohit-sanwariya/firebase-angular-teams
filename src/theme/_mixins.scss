@@ -1,0 +1,18 @@
+
+
+
+@mixin bgclr($color) {
+    background-color: $color;
+}
+
+@mixin clr($color) {
+  color: $color;
+}
+
+@mixin font-family {
+  font-family: Work_Sans;
+}
+
+@mixin box-shadow-custom($x,$y,$blur,$spread,$color){
+  box-shadow: $x $y $blur $spread get-theme-color($color);
+}

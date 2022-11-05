@@ -1,34 +1,46 @@
-<div class="container">
+<div class="container bg-disabled">
   <form [formGroup]="_auth.loginForm">
-    <mat-card class="card">
+    <mat-card class="card ">
+      <div class="center-child">
+        <app-logo [top]="-30" [left]="30"></app-logo>
+        <h2 class="brand text-white text-brand text-weight-medium font-team uppercase">
+          gRoup chat <sup class="text-white font-team text-sm">&trade;</sup>
+        </h2>
+      </div>
       <mat-form-field>
         <mat-label> Email </mat-label>
         <input type="email" matInput formControlName="email" />
+        <mat-error class="white-error">
+          <span *ngIf="_auth.loginForm.get('email')?.hasError('required')">
+            Email is Required
+          </span>
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field>
         <mat-label> Password </mat-label>
         <div class="password-container">
-          <input
-            [type]="visibility ? 'password' : 'text'"
-            matInput
-            formControlName="password"
-          />
+          <input [type]="visibility ? 'password' : 'text'" matInput formControlName="password" />
           <mat-icon (click)="visibility = !visibility">
             {{ visibility ? "visibility" : "visibility_off" }}
           </mat-icon>
         </div>
+        <mat-error class="white-error">
+          <span *ngIf="_auth.loginForm.get('password')?.hasError('required')">
+            Password is Required
+          </span>
+        </mat-error>
       </mat-form-field>
       <div>
         <span>
           Not a User <a [routerLink]="['', 'register']"> Register Now </a>
         </span>
       </div>
-    <div class="button-container">
-      <button (click)="_auth.emailLogin()" mat-flat-button color="primary">
-        Login
-      </button>
-    </div>
+      <div class="button-container">
+        <button [disabled]="_auth.loginForm.invalid" (click)="_auth.emailLogin()" mat-flat-button>
+          Login
+        </button>
+      </div>
     </mat-card>
   </form>
 </div>

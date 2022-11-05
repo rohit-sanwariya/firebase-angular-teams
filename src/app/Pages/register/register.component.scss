@@ -1,37 +1,37 @@
+@import 'main';
 .container {
   display: grid;
   align-items: center;
   justify-content: center;
   height: 100vh;
-
   form {
     display: grid;
     align-items: center;
     justify-content: center;
     width: 100vw;
-
     .mat-card {
       box-shadow: 0px 0px 10px 0px #333, 0 1px 1px 0 #333, 0 1px 3px 0 #333;
     }
-    mat-card.card {
-
+    .card {
       width: 60vw;
-      height: 70vh;
+      height: 80vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      background-color: get-theme-color(base) !important;
       mat-form-field {
-   
-        width: 50%;
-        margin: 0.25rem 0;
-        // display: flex;
-        // justify-content: center;
+        margin: .25rem 0;
+        justify-content: center;
+        input {
+          background-color: get-theme-color(base);
+          color: get-theme-color(white);
+        }
         .password-container {
           display: flex;
-        }
-        .mat-form-field-infix{
-          width: 100% !important;
+          mat-icon {
+            color: get-theme-color(white);
+          }
         }
       }
       button {
@@ -45,16 +45,28 @@
         margin-right: 2rem;
         align-items: center;
         span {
-          color: #333;
-          font-style: italic;
+          color:get-theme-color(white);
           a {
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 400;
             font-size: 1.1rem;
             font-style: normal;
+            color:get-theme-color(white);
+            &:hover {
+              border-bottom: 2px solid get-theme-color(white);
+            }
+          }
+        }
+
+        &.center-child{
+          button{
+            width: 10rem;
+            background-color: get-theme-color(white);
+            color: get-theme-color(text);
           }
         }
       }
+
     }
   }
 }

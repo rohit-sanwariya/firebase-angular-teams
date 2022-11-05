@@ -1,0 +1,13 @@
+$brandHex: #3d3e78;
+
+$pallete: (
+  base: #3d3e78,
+  light: #5b5fc7,
+  red: #c4314b,
+  green: #237b4b,
+  text: #242424,
+  white:#fff,
+  disabled:#C7C7C7,
+);
+
+@debug "fun #{map-get($pallete,white)}";

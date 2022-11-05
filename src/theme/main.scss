@@ -1,0 +1,108 @@
+@import "functions";
+@import "variable";
+@import "mixins";
+
+
+
+@font-face {
+  font-family: Work_Sans;
+  src: url("../assets/Work_Sans/WorkSans-VariableFont_wght.ttf");
+}
+
+.mat-form-field-label {
+  color: #fff !important;
+}
+
+@each $name,$color in $pallete {
+  @for $i from 1 to 5 {
+    .border-#{$name}-#{$i} {
+      border: #{$i}px $color solid !important;
+      @debug "border: #{$i}px #{$color} solid !important;";
+    }
+
+  }
+  .#{$name}-error {
+    span {
+      color: get-theme-color(white) !important;
+    }
+  }
+    .text-#{$name} {
+      color: $color !important;
+
+    }
+
+    .bg-#{$name} {
+      background-color:  $color  !important;
+      @debug ".bg-#{$name}"
+    }
+  }
+
+
+.white-error {
+  span {
+    color: get-theme-color(white) !important;
+  }
+}
+
+.text-white {
+  color: get-theme-color(white) !important;
+
+}
+
+.text-lg {
+  font-size: 2.5rem !important;
+}
+
+.text-sm {
+  font-size: 1rem !important;
+}
+
+.text-weight-medium {
+  font-weight: 400;
+}
+
+.font-team {
+  font-family: Work_Sans;
+}
+
+.text-brand {
+  font-size: 3rem !important;
+}
+
+
+
+
+
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+a {
+  text-transform: none;
+}
+
+.center-child {
+  display: flex;
+  align-items: center;
+  justify-content: center !important;
+}
+
+.align-children-center {
+  display: flex;
+  align-items: center;
+  justify-content: start !important;
+}
+
+*:disabled {
+  background: get-theme-color(disabled) !important;
+  cursor: not-allowed !important;
+}

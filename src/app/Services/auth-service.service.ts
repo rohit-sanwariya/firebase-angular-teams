@@ -89,8 +89,10 @@ export class AuthService {
         localStorage.setItem('refreshToken', credential.user.stsTokenManager.refreshToken);
         localStorage.setItem('accessToken', credential.user.stsTokenManager.accessToken);
         localStorage.setItem('expirationTime', credential.user.stsTokenManager.expirationTime);
-        this.snackBar.open("Sign Up Successful!", "", { duration: 1500 });
-
+        this.snackBar.open("Sign In Successful!", "", { duration: 1500 });
+        setTimeout(() => {
+          this._router.navigate([""])
+        }, 1000)
       },
       error(err) {
         console.log(err);
@@ -139,8 +141,11 @@ export class AuthService {
 
 
   }
+  logOut(){
+    localStorage.clear();
+    this._router.navigate(['','login'])
+  }
   onFileSelected(event: any) {
-
     this.selectedFile = event.target.files[0] ?? null;
     console.log(this.selectedFile instanceof File);
 

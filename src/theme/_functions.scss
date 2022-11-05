@@ -1,0 +1,8 @@
+@import "variable";
+
+
+@function get-theme-color($key){
+  @return   map-get($pallete,  $key );
+}
+
+

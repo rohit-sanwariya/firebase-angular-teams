@@ -4,6 +4,7 @@ import { LoginComponent } from './login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/app/Shared/material/material.module';
+import { SharedModule } from 'src/app/Shared/shared.module';
 
 const routes:Routes = [
   {
@@ -20,6 +21,7 @@ const routes:Routes = [
     RouterModule.forChild(routes),
     ReactiveFormsModule,
     MaterialModule,
+    SharedModule,
   ]
 })
 export class LoginModule { }
