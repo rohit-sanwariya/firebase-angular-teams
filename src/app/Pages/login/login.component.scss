@@ -16,10 +16,7 @@
     justify-content: center;
     width: 100vw;
 
-    .mat-card {
-      box-shadow: 0px 0px 10px 0px #9b9b9b, 0 1px 1px 0 #9b9b9b,
-        0 1px 3px 0 #9b9b9b;
-    }
+
     .card {
       width: 50vw;
       height: 70vh;
@@ -27,23 +24,16 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      background-color: get-theme-color(base);
+
 
       mat-form-field {
         margin: 1rem 0;
         justify-content: center;
-        input {
-          background-color: get-theme-color(base);
-          color: get-theme-color(white);
-        }
-        input:focus{
-          outline: none
-          }
+
+
         .password-container {
           display: flex;
-          mat-icon {
-            color: get-theme-color(white);
-          }
+
         }
       }
 
@@ -53,16 +43,15 @@
         justify-content: flex-end;
 
         span {
-          color: get-theme-color(white);
-          $val: get-theme-color(white);
+
           a {
-            color: get-theme-color(white);
+
             text-decoration: none;
-            font-weight: 400;
+            font-weight: 600;
             font-size: 1.1rem;
             font-style: normal;
-            &:hover {
-              border-bottom: 2px solid get-theme-color(white);
+            &:hover{
+              border-bottom: 2px solid get-theme-color('base');
             }
           }
         }
@@ -71,7 +60,7 @@
           button {
             width: 10rem;
             margin: 1rem 0;
-            color: get-theme-color(text);
+
           }
         }
       }

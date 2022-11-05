@@ -128,9 +128,9 @@ export class AuthService {
               photoURL: downloadURL,
             });
             await setDoc(doc(this._db, "userChats", credential.user.uid), {});
-            setTimeout(() => {
+
               this._router.navigate([""])
-            }, 1000)
+         
           } catch (error) {
 
           }

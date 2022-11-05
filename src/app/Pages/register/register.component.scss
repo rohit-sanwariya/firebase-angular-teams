@@ -19,24 +19,19 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      background-color: get-theme-color(base) !important;
+
       mat-form-field {
         margin: .25rem 0;
         justify-content: center;
-        input {
-          background-color: get-theme-color(base);
-          color: get-theme-color(white);
-        }
+
         .password-container {
           display: flex;
-          mat-icon {
-            color: get-theme-color(white);
-          }
+
         }
       }
       button {
         margin: 1rem 0;
-        color: #fff;
+
       }
       div {
         display: flex;
@@ -45,24 +40,22 @@
         margin-right: 2rem;
         align-items: center;
         span {
-          color:get-theme-color(white);
+
           a {
             text-decoration: none;
-            font-weight: 400;
+            font-weight: 600;
             font-size: 1.1rem;
             font-style: normal;
-            color:get-theme-color(white);
-            &:hover {
-              border-bottom: 2px solid get-theme-color(white);
+            &:hover{
+              border-bottom: 2px solid get-theme-color('base');
             }
+
           }
         }
 
         &.center-child{
           button{
             width: 10rem;
-            background-color: get-theme-color(white);
-            color: get-theme-color(text);
           }
         }
       }

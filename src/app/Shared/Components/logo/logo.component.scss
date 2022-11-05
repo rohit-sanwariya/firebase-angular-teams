@@ -12,5 +12,5 @@
 }
 
 .logo-box-shadow{
-  @include box-shadow-custom(4px ,-2px ,4px, 2px ,'base');
+  @include box-shadow-custom(6px ,-2px ,4px, 2px ,'white');
 }

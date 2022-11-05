@@ -1,23 +1,18 @@
-<div class="container bg-disabled">
-  <form [formGroup]="_auth.registerForm" [autocomplete]="false">
+<div class="container bg-light">
+  <form [formGroup]="_auth.registerForm" autocomplete="off">
     <mat-card class="card">
       <div class="center-child">
         <app-logo [top]="-36" [left]="18"></app-logo>
 
-        <h2
-          class="brand text-white text-brand text-weight-medium font-team uppercase"
-        >
-          gRoup chat <sup class="text-white font-team text-sm">&trade;</sup>
+        <h2 class="brand text-white text-brand text-weight-medium font-team uppercase">
+          gRoup chat <sup class="text-base font-team text-sm">&trade;</sup>
         </h2>
       </div>
       <mat-form-field>
         <mat-label> Username </mat-label>
         <input type="email" matInput formControlName="username" />
-        <mat-error class="white-error">
-          <div
-            *ngIf="_auth.registerForm.get('username')?.getError('required')"
-            class="align-children-center"
-          >
+        <mat-error class="red-error">
+          <div *ngIf="_auth.registerForm.get('username')?.getError('required')" class="align-children-center">
             <mat-icon>error</mat-icon> <span> Username is Required </span>
           </div>
         </mat-error>
@@ -25,12 +20,12 @@
       <mat-form-field>
         <mat-label> Email </mat-label>
         <input type="email" matInput formControlName="email" />
-        <mat-error class="white-error">
-          <div
-            *ngIf="_auth.registerForm.get('email')?.getError('required')"
-            class="align-children-center"
-          >
+        <mat-error class="red-error">
+          <div *ngIf="_auth.registerForm.get('email')?.getError('required')" class="align-children-center">
             <mat-icon>error</mat-icon> <span> Email is Required </span>
+          </div>
+          <div *ngIf="_auth.registerForm.get('email')?.getError('email')" class="align-children-center">
+            <mat-icon>error</mat-icon> <span> Invalid Email </span>
           </div>
         </mat-error>
       </mat-form-field>
@@ -38,20 +33,13 @@
       <mat-form-field>
         <mat-label> Password </mat-label>
         <div class="password-container">
-          <input
-            [type]="visibility ? 'password' : 'text'"
-            matInput
-            formControlName="password"
-          />
+          <input [type]="visibility ? 'password' : 'text'" matInput formControlName="password" />
           <mat-icon (click)="visibility = !visibility">
             {{ visibility ? "visibility" : "visibility_off" }}
           </mat-icon>
         </div>
-        <mat-error class="white-error">
-          <div
-            *ngIf="_auth.registerForm.get('password')?.hasError('required')"
-            class="align-children-center"
-          >
+        <mat-error class="red-error">
+          <div *ngIf="_auth.registerForm.get('password')?.hasError('required')" class="align-children-center">
             <mat-icon>error</mat-icon> <span> Password is Required </span>
           </div>
         </mat-error>
@@ -59,69 +47,45 @@
       <mat-form-field>
         <mat-label>Confirm Password</mat-label>
         <div class="password-container">
-          <input
-            [type]="visibilityConfirm ? 'password' : 'text'"
-            matInput
-            formControlName="confirmPassword"
-          />
+          <input [type]="visibilityConfirm ? 'password' : 'text'" matInput formControlName="confirmPassword" />
           <mat-icon (click)="visibilityConfirm = !visibilityConfirm">
             {{ visibilityConfirm ? "visibility" : "visibility_off" }}
           </mat-icon>
         </div>
 
-        <mat-error class="white-error">
-          <span
-            *ngIf="
+        <mat-error class="red-error">
+          <span *ngIf="
               _auth.registerForm
                 .get('confirmPassword')
                 ?.hasError('passwordNotEqual')
-            "
-          >
+            ">
             Confirm Password Should Match Password
           </span>
-          <div
-            *ngIf="
+          <div *ngIf="
               _auth.registerForm.get('confirmPassword')?.hasError('required')
-            "
-            class="align-children-center"
-          >
+            " class="align-children-center">
             <mat-icon>error</mat-icon>
             <span> Confirm Password is required. </span>
           </div>
         </mat-error>
       </mat-form-field>
       <div>
-        <button
-          color="accent"
-          type="button"
-          mat-raised-button
-          (click)="fileInput.click()"
-        >
-          <mat-icon>account_box</mat-icon>Choose File
+        <button color="accent" type="button" mat-raised-button (click)="fileInput.click()">
+          <img src="./../../../assets/avatar.png" alt=""> Choose an Avatar
         </button>
-        <input
-          hidden
-          (change)="_auth.onFileSelected($event)"
-          #fileInput
-          type="file"
-        />
+        <input hidden (change)="_auth.onFileSelected($event)" #fileInput type="file" />
         <span class="file-name">{{
           _auth.selectedFile && _auth.selectedFile.name
-        }}</span>
+          }}</span>
       </div>
       <div>
-        <span>
-          Already a User <a [routerLink]="['', 'login']"> Sign In </a>
+        <span class="font-team">
+          Already a User <a class="" [routerLink]="['', 'login']"> Sign In </a>
         </span>
       </div>
 
       <div class="center-child">
-        <button
-          [disabled]="_auth.registerForm.invalid"
-          mat-flat-button
-          color="primary"
-          (click)="_auth.emailSignUp()"
-        >
+        <button [disabled]="_auth.registerForm.invalid" mat-flat-button color="primary" (click)="_auth.emailSignUp()">
           Sign Up
         </button>
       </div>

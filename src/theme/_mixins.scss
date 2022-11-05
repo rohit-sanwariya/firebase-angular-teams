@@ -16,3 +16,10 @@
 @mixin box-shadow-custom($x,$y,$blur,$spread,$color){
   box-shadow: $x $y $blur $spread get-theme-color($color);
 }
+
+
+@mixin mat-form-field-label-custom($color) {
+  .mat-form-field-label {
+      color: get-theme-color($color);
+  }
+}

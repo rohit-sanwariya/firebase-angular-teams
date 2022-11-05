@@ -9,9 +9,10 @@
   src: url("../assets/Work_Sans/WorkSans-VariableFont_wght.ttf");
 }
 
-.mat-form-field-label {
-  color: #fff !important;
+body{
+  font-family: Work_Sans;
 }
+
 
 @each $name,$color in $pallete {
   @for $i from 1 to 5 {
@@ -23,7 +24,7 @@
   }
   .#{$name}-error {
     span {
-      color: get-theme-color(white) !important;
+      color:$color !important;
     }
   }
     .text-#{$name} {
@@ -33,16 +34,27 @@
 
     .bg-#{$name} {
       background-color:  $color  !important;
-      @debug ".bg-#{$name}"
+      @debug ".bg-#{$name}";
+    }
+    .hover-#{$name}{
+     &:hover{
+      color: $color !important;
+     }
+    }
+    .hover-bg-#{$name}{
+      &:hover{
+        background-color: $color !important;
+      }
+    }
+    .hover-border-#{$name}{
+     &:hover{
+      border-bottom: 1px $color !important;
+     }
     }
   }
 
 
-.white-error {
-  span {
-    color: get-theme-color(white) !important;
-  }
-}
+
 
 .text-white {
   color: get-theme-color(white) !important;
@@ -102,7 +114,3 @@ a {
   justify-content: start !important;
 }
 
-*:disabled {
-  background: get-theme-color(disabled) !important;
-  cursor: not-allowed !important;
-}
