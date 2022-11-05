@@ -10,7 +10,7 @@
       <mat-form-field>
         <mat-label> Email </mat-label>
         <input type="email" matInput formControlName="email" />
-        <mat-error class="red-error">
+        <mat-error class="">
           <span *ngIf="_auth.loginForm.get('email')?.hasError('required')">
             Email is Required
           </span>
@@ -28,7 +28,7 @@
             {{ visibility ? "visibility" : "visibility_off" }}
           </mat-icon>
         </div>
-        <mat-error class="red-error">
+        <mat-error class="">
           <span *ngIf="_auth.loginForm.get('password')?.hasError('required')">
             Password is Required
           </span>
