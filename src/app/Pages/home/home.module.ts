@@ -4,6 +4,8 @@ import { HomeComponent } from './home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ChatComponent } from './chat/chat.component';
+import { NavbarComponent } from './sidebar/navbar/navbar.component';
+import { MaterialModule } from 'src/app/Shared/material/material.module';
 
 const routes:Routes = [
   {
@@ -15,10 +17,12 @@ const routes:Routes = [
   declarations: [
     HomeComponent,
     SidebarComponent,
-    ChatComponent
+    ChatComponent,
+    NavbarComponent
   ],
   imports: [
     CommonModule,
+    MaterialModule,
     RouterModule.forChild(routes)
   ]
 })

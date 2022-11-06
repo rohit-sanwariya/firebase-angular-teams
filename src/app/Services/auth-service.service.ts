@@ -71,7 +71,7 @@ export class AuthService {
       switchMap((value: any, index: any) => {
         if (value.user) {
           console.log(value);
-          return value
+          return of(value);
         }
         else {
           return EMPTY;
@@ -90,9 +90,9 @@ export class AuthService {
         localStorage.setItem('accessToken', credential.user.stsTokenManager.accessToken);
         localStorage.setItem('expirationTime', credential.user.stsTokenManager.expirationTime);
         this.snackBar.open("Sign In Successful!", "", { duration: 1500 });
-        setTimeout(() => {
+
           this._router.navigate([""])
-        }, 1000)
+
       },
       error(err) {
         console.log(err);
@@ -130,7 +130,7 @@ export class AuthService {
             await setDoc(doc(this._db, "userChats", credential.user.uid), {});
 
               this._router.navigate([""])
-         
+
           } catch (error) {
 
           }
