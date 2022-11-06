@@ -6,6 +6,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { ChatComponent } from './chat/chat.component';
 import { NavbarComponent } from './sidebar/navbar/navbar.component';
 import { MaterialModule } from 'src/app/Shared/material/material.module';
+import { SearchComponent } from './sidebar/search/search.component';
 
 const routes:Routes = [
   {
@@ -18,7 +19,8 @@ const routes:Routes = [
     HomeComponent,
     SidebarComponent,
     ChatComponent,
-    NavbarComponent
+    NavbarComponent,
+    SearchComponent
   ],
   imports: [
     CommonModule,

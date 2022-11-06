@@ -1,0 +1,11 @@
+<mat-form-field class="w-100 bg-base text-white font-team " appearance="fill">
+<mat-label class="text-white px-2">
+  Find a user....
+</mat-label>
+<input   class="px-2 font-5" type="text" matInput  [matAutocomplete]="auto" >
+<mat-autocomplete #auto="matAutocomplete">
+  <mat-option *ngFor="let option of options" [value]="option">
+    {{option}}
+  </mat-option>
+</mat-autocomplete>
+</mat-form-field>
