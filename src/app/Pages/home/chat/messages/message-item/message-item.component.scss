@@ -1,0 +1,21 @@
+
+.message-item-container{
+  max-width: 80%;
+
+}
+.right
+{
+  margin-left: auto !important;
+}
+.chat-img-container{
+  height: 3rem;
+  width: 3rem;
+  background-color: #fff;
+  border-radius: 100%;
+  img{
+    height: 2.9rem;
+    width: 2.9rem;
+    object-fit: cover;
+    border-radius: 100%;
+  }
+}

@@ -10,6 +10,9 @@ import { SearchComponent } from './sidebar/search/search.component';
 import { UserChatsComponent } from './sidebar/user-chats/user-chats.component';
 import { ChatItemComponent } from './sidebar/user-chats/chat-item/chat-item.component';
 import { InfiniteScrollModule } from "ngx-infinite-scroll";
+import { ChatNavbarComponent } from './chat/chat-navbar/chat-navbar.component';
+import { MessagesComponent } from './chat/messages/messages.component';
+import { MessageItemComponent } from './chat/messages/message-item/message-item.component';
 const routes:Routes = [
   {
     path:'',component:HomeComponent
@@ -24,7 +27,10 @@ const routes:Routes = [
     NavbarComponent,
     SearchComponent,
     UserChatsComponent,
-    ChatItemComponent
+    ChatItemComponent,
+    ChatNavbarComponent,
+    MessagesComponent,
+    MessageItemComponent
   ],
   imports: [
     CommonModule,

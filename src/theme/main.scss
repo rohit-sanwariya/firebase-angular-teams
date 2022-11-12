@@ -60,81 +60,70 @@ body{
 
     .mt-#{$i}{
       $space:.25rem*$i;
-      @debug "mt-#{$i}  #{$space}";
       margin-top: #{$space} !important;
     }
     .font-#{$i}{
       $space:.25rem*$i;
-      @debug "mt-#{$i}  #{$space}";
+      font-size: #{$space} !important;
+    }
+    .font-#{$i}{
+      $space:.25rem*$i;
       font-size: #{$space} !important;
     }
     .ml-#{$i}{
       $space:.25rem*$i;
-      @debug "mt-#{$i}  #{$space}";
       margin-left: #{$space} !important;
     }
     .mr-#{$i}{
       $space:.25rem*$i;
-      @debug "mt-#{$i}  #{$space}";
       margin-right: #{$space} !important;
     }
     .mb-#{$i}{
       $space:.25rem*$i;
-      @debug "mt-#{$i}  #{$space}";
       margin-bottom: #{$space} !important;
     }
     .mx-#{$i}{
       $space:.25rem*$i;
-      @debug "mt-#{$i}  #{$space}";
       margin-left: #{$space} !important;
       margin-right: #{$space} !important;
     }
     .my-#{$i}{
       $space:.25rem*$i;
-      @debug "mt-#{$i}  #{$space}";
       margin-top: #{$space} !important;
       margin-bottom: #{$space} !important;
     }
     .m-#{$i}{
       $space:.25rem*$i;
-      @debug "mt-#{$i}  #{$space}";
       margin: #{$space} !important;
     }
     .pt-#{$i}{
       $space:.25rem*$i;
-      @debug "mt-#{$i}  #{$space}";
       padding-top: #{$space} !important;
     }
     .pl-#{$i}{
       $space:.25rem*$i;
-      @debug "mt-#{$i}  #{$space}";
       padding-left: #{$space} !important;
     }
     .pr-#{$i}{
       $space:.25rem*$i;
-      @debug "mt-#{$i}  #{$space}";
       padding-right: #{$space} !important;
     }
     .pb-#{$i}{
       $space:.25rem*$i;
-      @debug "mt-#{$i}  #{$space}";
       padding-bottom: #{$space} !important;
     }
     .px-#{$i}{
       $space:.25rem*$i;
-      @debug "mt-#{$i}  #{$space}";
       padding-left: #{$space} !important;
       padding-right: #{$space} !important;
     }
     .py-#{$i}{
       $space:.25rem*$i;
-      @debug "mt-#{$i}  #{$space}";
       padding-top: #{$space} !important;
       padding-bottom: #{$space} !important;
     }
     .p-#{$i}{
       $space:.25rem*$i;
-      @debug "mt-#{$i}  #{$space}";
       padding: #{$space} !important;
     }
 
@@ -142,6 +131,9 @@ body{
 
 .srcoll{
   overflow:scroll;
+}
+.cursor-pointer{
+  cursor: pointer;
 }
 .srcoll-hidden{
   overflow: hidden;
@@ -226,8 +218,23 @@ a {
 .justify-content-between{
   justify-content: space-between;
 }
-.justify-content-around{
-  justify-content: space-around;
+.justify-self-around{
+  justify-self: space-around;
+}
+.justify-self-center{
+  justify-self: center;
+}
+.justify-self-start{
+  justify-self: flex-start;
+}
+.justify-self-end{
+  justify-self: flex-end;
+}
+.justify-self-between{
+  justify-self: space-between;
+}
+.justify-self-around{
+  justify-self: space-around;
 }
 .align-items-center{
   align-items: center;
