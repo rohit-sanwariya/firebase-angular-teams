@@ -1,18 +1,22 @@
-
-.message-item-container{
+.message-item-container {
   max-width: 80%;
-  
+
 }
-.right
-{
+.message{
+  border-radius: 0 1.2rem;
+
+}
+.right {
   margin-left: auto !important;
 }
-.chat-img-container{
+
+.chat-img-container {
   height: 3rem;
   width: 3rem;
-  background-color: #fff;
+  background-color: #232323;
   border-radius: 100%;
-  img{
+
+  img {
     height: 2.9rem;
     width: 2.9rem;
     object-fit: cover;

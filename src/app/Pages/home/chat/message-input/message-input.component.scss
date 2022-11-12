@@ -1,16 +1,24 @@
 @import 'main';
-.messages
-{
-  height: calc(100vh - 9rem);
+
+.message-input-container {
+
+
+  // box-shadow-custom($x,$y,$blur,$spread,$color)
+  @include box-shadow-custom(0, 0, 11px, 1px, text);
   width: 100%;
-  display: flex;
-  overflow-y: scroll;
-  background-color: #f3f3f3;
+  // margin-top: auto;
+  mat-form-field{
+    width: 85% !important;
+    textarea {
+    margin-top: auto !important;
+
+    }
+  }
+
 }
 
-
 ::-webkit-scrollbar {
-  width: .5rem;
+  width: .1rem;
 
 }
 
