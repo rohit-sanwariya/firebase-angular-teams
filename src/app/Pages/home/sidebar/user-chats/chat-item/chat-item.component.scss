@@ -1,0 +1,16 @@
+.chat-img-container{
+  height: 2.5rem;
+  width: 2.5rem;
+  background-color: #fff;
+  border-radius: 100%;
+  img{
+    height: 2.3rem;
+    width: 2.3rem;
+    object-fit: cover;
+    border-radius: 100%;
+  }
+}
+.message-text
+{
+  font-size: .75rem;
+}

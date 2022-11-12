@@ -11,6 +11,7 @@
 
 body{
   font-family: Work_Sans;
+  overflow:hidden;
 }
 
 
@@ -52,7 +53,7 @@ body{
       border-bottom: 1px $color !important;
      }
     }
-    
+
   }
 
   @for $i from 1 to 8{
@@ -139,6 +140,12 @@ body{
 
   }
 
+.srcoll{
+  overflow:scroll;
+}
+.srcoll-hidden{
+  overflow: hidden;
+}
 
 .text-white {
   color: get-theme-color(white) !important;
@@ -155,6 +162,9 @@ body{
 
 .text-weight-medium {
   font-weight: 400;
+}
+.text-weight-bold {
+  font-weight: bold;
 }
 
 .font-team {
@@ -200,6 +210,9 @@ a {
 
 .container-flex{
   display: flex;
+}
+.column{
+  flex-direction: column;
 }
 .justify-content-center{
   justify-content: center;
