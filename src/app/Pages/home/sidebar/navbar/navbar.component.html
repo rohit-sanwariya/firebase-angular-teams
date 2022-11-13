@@ -2,10 +2,10 @@
   <span class="text-white span-2 brand">Group Chat</span>
   <div class="user container-flex span-4">
     <div class="user-img container-flex justify-content-center mx-1">
-      <img src="../../../../../assets/dummy.jpg" class="mr-2" alt="USER PROFILE">
+      <img [src]="(_shared.currentUser )?_shared.currentUser.photoURL:'../../../../../../assets/dummy.jpg'" class="mr-2" alt="USER PROFILE">
     </div>
     <div class="username text-white font-team mx-1">
-      Rohit Sanwariya
+      {{_shared.currentUser?_shared.currentUser.displayName:'Rohit Sanwariya'}}
     </div>
    <div class="button-container span-2">
 

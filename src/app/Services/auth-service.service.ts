@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup,  Validators } from '@angular/forms';
 import {
   signInWithEmailAndPassword,
   Auth,
   createUserWithEmailAndPassword,
-  updateProfile
+  updateProfile,
+  getAuth,
+  onAuthStateChanged
 } from '@angular/fire/auth';
 import { ref, uploadBytesResumable, getDownloadURL, Storage, } from '@angular/fire/storage';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -13,8 +15,10 @@ import { Router } from '@angular/router';
 import { FirebaseError } from '@angular/fire/app';
 import { switchMap, catchError, timeout } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
-import { doc, Firestore, setDoc } from '@angular/fire/firestore';
+import { doc, Firestore, setDoc,query } from '@angular/fire/firestore';
 import { EqualityPassword } from '../lib/custom-validators-function';
+import { UserModel } from '../Models/other-person';
+import { SharedService } from './shared.service';
 
 @Injectable({
   providedIn: 'root'
@@ -32,10 +36,22 @@ export class AuthService {
     private snackBar: MatSnackBar,
     private _router: Router,
     private _http: HttpClient,
+    private _shared: SharedService,
 
   ) {
 
-
+console.log(this._auth.currentUser?.displayName,getAuth());
+const auth = getAuth() ;
+onAuthStateChanged(auth,(user)=>{
+  if(user){
+    this._shared.currentUser = user as UserModel;
+  }
+  else{
+    localStorage.clear();
+  this._router.navigate(['','login']);
+  }
+})
+ 
   }
   initLoginForm() {
     this.loginForm = this._fb.group({
@@ -86,6 +102,15 @@ export class AuthService {
 
     ).subscribe({
       next: (credential: any) => {
+        console.log(credential);
+
+        const currentUser:UserModel = {
+          uid:credential.user.uid,
+          displayName:credential.user.displayName,
+          photoURL:credential.user.photoURL,
+          email:credential.user.email,
+        }
+        this._shared.currentUser = currentUser;
         localStorage.setItem('refreshToken', credential.user.stsTokenManager.refreshToken);
         localStorage.setItem('accessToken', credential.user.stsTokenManager.accessToken);
         localStorage.setItem('expirationTime', credential.user.stsTokenManager.expirationTime);

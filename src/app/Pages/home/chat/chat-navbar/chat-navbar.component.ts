@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SharedService } from 'src/app/Services/shared.service';
 
 @Component({
   selector: 'app-chat-navbar',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChatNavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(public _shared:SharedService) { }
 
   ngOnInit(): void {
   }

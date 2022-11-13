@@ -3,7 +3,9 @@
   <div class="container-flex " [ngClass]="{'row-reverse': self }">
     <div class="chat-info p-3 mx-3">
       <div class="chat-img-container">
-        <img src="./../../../../../../assets/dummy.jpg" alt="">
+
+        <img *ngIf="!self" [src]="(_shared.otherPerson )?_shared.otherPerson.photoURL:'../../../../../../assets/dummy.jpg'" alt="">
+        <img *ngIf="self" [src]="(_shared.currentUser )?_shared.currentUser.photoURL:'../../../../../../assets/dummy.jpg'" alt="">
       </div>
       <div class="info text-base font-3">
         8:00Pm

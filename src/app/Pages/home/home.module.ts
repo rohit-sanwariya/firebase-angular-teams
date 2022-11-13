@@ -14,6 +14,7 @@ import { ChatNavbarComponent } from './chat/chat-navbar/chat-navbar.component';
 import { MessagesComponent } from './chat/messages/messages.component';
 import { MessageItemComponent } from './chat/messages/message-item/message-item.component';
 import { MessageInputComponent } from './chat/message-input/message-input.component';
+import { ReactiveFormsModule } from '@angular/forms';
 const routes:Routes = [
   {
     path:'',component:HomeComponent
@@ -38,6 +39,7 @@ const routes:Routes = [
     CommonModule,
     MaterialModule,
     InfiniteScrollModule,
+    ReactiveFormsModule,
     RouterModule.forChild(routes)
   ]
 })

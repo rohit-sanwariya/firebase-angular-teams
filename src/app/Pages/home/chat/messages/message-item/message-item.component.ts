@@ -1,4 +1,5 @@
 import { Component, OnInit,Input } from '@angular/core';
+import { SharedService } from 'src/app/Services/shared.service';
 
 @Component({
   selector: 'app-message-item',
@@ -7,7 +8,7 @@ import { Component, OnInit,Input } from '@angular/core';
 })
 export class MessageItemComponent implements OnInit {
   @Input() self:boolean=false;
-  constructor() { }
+  constructor(public _shared:SharedService) { }
 
   ngOnInit(): void {
   }

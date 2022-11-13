@@ -2,12 +2,13 @@
   <mat-label class="text-white px-2">
     Find a user....
   </mat-label>
-  <input class="px-2 font-5" type="text" matInput [matAutocomplete]="auto">
-  <mat-autocomplete #auto="matAutocomplete">
-    <mat-option *ngFor="let option of options" [value]="option">
-      <div class="option-container align-items-center">
-        <img class="example-option-img mt-1" aria-hidden src="../../../../../assets/avatar.png" height="25">
-        <span class="mx-3">{{option}}</span>
+
+  <input class="px-2 font-5" type="text" matInput [matAutocomplete]="auto"  [formControl]="_search.searchUserControl">
+  <mat-autocomplete #auto="matAutocomplete" (optionSelected)="_search.setOtherUser()">
+    <mat-option *ngFor="let option of _search.options"  [value]="option">
+      <div class="option-container align-items-center chat-img-container">
+        <img class="example-option-img mt-1" aria-hidden [src]="option?.photoURL" height="25">
+        <span class="mx-3 mb-2">{{option?.displayName}}</span>
       </div>
     </mat-option>
   </mat-autocomplete>
