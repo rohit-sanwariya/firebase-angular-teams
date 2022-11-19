@@ -6,6 +6,7 @@ import {MatInputModule } from '@angular/material/input'
 import {MatCardModule } from '@angular/material/card'
 import {MatSnackBarModule} from '@angular/material/snack-bar'
 import {MatAutocompleteModule} from '@angular/material/autocomplete'
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
 const material=[
   MatFormFieldModule,
   MatButtonModule,
@@ -14,6 +15,7 @@ const material=[
   MatCardModule,
   MatSnackBarModule,
   MatAutocompleteModule,
+  MatProgressSpinnerModule
 ]
 
 @NgModule({

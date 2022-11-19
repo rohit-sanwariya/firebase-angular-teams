@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SharedService } from 'src/app/Services/shared.service';
 
 @Component({
   selector: 'app-user-chats',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserChatsComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public _shared:SharedService
+  ) {
+    this._shared.getUserChats();
+  }
   onScroll(){
-    
+
   }
   ngOnInit(): void {
   }

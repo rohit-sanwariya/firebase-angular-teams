@@ -3,34 +3,11 @@
        [infiniteScrollDistance]="2"
        [infiniteScrollThrottle]="50"
        [infiniteScrollContainer]="containerRef">
-       <app-chat-item></app-chat-item>
-       <app-chat-item></app-chat-item>
-       <app-chat-item></app-chat-item>
-       <app-chat-item></app-chat-item>
-       <app-chat-item></app-chat-item>
-       <app-chat-item></app-chat-item>
-       <app-chat-item></app-chat-item>
-       <app-chat-item></app-chat-item>
-       <app-chat-item></app-chat-item>
-       <app-chat-item></app-chat-item>
-       <app-chat-item></app-chat-item>
-       <app-chat-item></app-chat-item>
-       <app-chat-item></app-chat-item>
-       <app-chat-item></app-chat-item>
-       <app-chat-item></app-chat-item>
-       <app-chat-item></app-chat-item>
-       <app-chat-item></app-chat-item>
-       <app-chat-item></app-chat-item>
-       <app-chat-item></app-chat-item>
-       <app-chat-item></app-chat-item>
-       <app-chat-item></app-chat-item>
-       <app-chat-item></app-chat-item>
-       <app-chat-item></app-chat-item>
-       <app-chat-item></app-chat-item>
-       <app-chat-item></app-chat-item>
-       <app-chat-item></app-chat-item>
-       <app-chat-item></app-chat-item>
-       <app-chat-item></app-chat-item>
+       <app-chat-item *ngFor="let chat of (_shared.userChats$|async)" [chat]="chat" ></app-chat-item>
+<div class="spinner-container">
+<mat-spinner *ngIf="_shared.chatsLoading" [color]="'#fff'"></mat-spinner>
+
+</div>
   </div>
 </div>
 
