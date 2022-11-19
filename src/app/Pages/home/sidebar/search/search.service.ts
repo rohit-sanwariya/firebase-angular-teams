@@ -15,7 +15,7 @@ setOtherUser() {
 
 
   this._shared.setuser(this.searchUserControl.value);
-  console.log(this._shared.user);
+
 
   this.searchUserControl.reset();
 }
@@ -38,7 +38,7 @@ setOtherUser() {
   }
 
   async seachUser(username:string){
-    console.log(username);
+
 
    const searchQuery = query(
       collection(this._db,"users"),
@@ -51,7 +51,7 @@ setOtherUser() {
         }
           else{
           this.options = [doc.data()]
-          console.log(doc.data());
+
 
           }
 

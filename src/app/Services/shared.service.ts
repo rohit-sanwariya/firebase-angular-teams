@@ -31,22 +31,20 @@ export class SharedService {
     const ref:DocumentReference= doc(this._db, 'chats', combinedId);
     const q = query(collection(this._db,"users"),where("uid","==",this.currentUser.uid));
     const querySnapshot:QuerySnapshot<DocumentData> = await getDocs(q);
-    console.log({len:querySnapshot.docs.length});
+
 
     querySnapshot.forEach((res)=>{
-      console.log(res.data());
+
 
     })
 
     try {
       const res:DocumentSnapshot<DocumentData> = await getDoc(ref);
 
-      console.log('leng',);
+
     if (!res.exists()) {
-      console.log(res);
+
       await setDoc(doc(this._db, 'chats', combinedId), { messages: [] });
-      const currentRef =  doc(this._db, 'userChats', this.currentUser.uid);
-      const userRef    =  doc(this._db, 'userChats', this.user.uid);
       await updateDoc(doc(this._db, "userChats", this.currentUser.uid), {
         [combinedId + ".userInfo"]: {
           uid: this.user.uid,
@@ -66,11 +64,11 @@ export class SharedService {
       });
     }
     else{
-      console.log('has chats');
+
 
     }
     } catch (error) {
-      console.log(error);
+
 
     }
   }

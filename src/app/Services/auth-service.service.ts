@@ -38,7 +38,7 @@ export class AuthService {
 
   ) {
 
-console.log(this._auth.currentUser?.displayName,getAuth());
+
 const auth = getAuth() ;
 onAuthStateChanged(auth,(user)=>{
   if(user){
@@ -59,7 +59,7 @@ onAuthStateChanged(auth,(user)=>{
   }
 
   initRegisterForm() {
-    console.log('init');
+
 
     this.registerForm = this._fb.group({
       username: ['', [Validators.required]],
@@ -84,7 +84,7 @@ onAuthStateChanged(auth,(user)=>{
     ).pipe(
       switchMap((value: any, index: any) => {
         if (value.user) {
-          console.log(value);
+
           return of(value);
         }
         else {
@@ -100,7 +100,7 @@ onAuthStateChanged(auth,(user)=>{
 
     ).subscribe({
       next: (credential: any) => {
-        console.log(credential);
+
 
         const currentUser:UserModel = {
           uid:credential.user.uid,
@@ -118,7 +118,7 @@ onAuthStateChanged(auth,(user)=>{
 
       },
       error(err) {
-        console.log(err);
+
       },
     });
   }
@@ -170,7 +170,7 @@ onAuthStateChanged(auth,(user)=>{
   }
   onFileSelected(event: any) {
     this.selectedFile = event.target.files[0] ?? null;
-    console.log(this.selectedFile instanceof File);
+
 
   }
 }
