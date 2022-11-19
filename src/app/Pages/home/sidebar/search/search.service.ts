@@ -10,9 +10,13 @@ import { SharedService } from 'src/app/Services/shared.service';
   providedIn: 'root'
 })
 export class SearchService {
- 
+
 setOtherUser() {
-  this._shared.otherPerson = this.searchUserControl.value;
+
+
+  this._shared.setuser(this.searchUserControl.value);
+  console.log(this._shared.user);
+
   this.searchUserControl.reset();
 }
   searchUserControl:FormControl = new FormControl("",[])
@@ -26,7 +30,10 @@ setOtherUser() {
     this.searchUserControl.valueChanges.pipe(
       debounceTime(500)
     ).subscribe((username:string)=>{
+      if(username){
       this.seachUser(username);
+
+      }
     })
   }
 
@@ -43,7 +50,6 @@ setOtherUser() {
           this.options = doc.data();
         }
           else{
-
           this.options = [doc.data()]
           console.log(doc.data());
 

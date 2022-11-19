@@ -14,7 +14,6 @@ import { EMPTY, from, of, throwError } from 'rxjs';
 import { Router } from '@angular/router';
 import { FirebaseError } from '@angular/fire/app';
 import { switchMap, catchError, timeout } from 'rxjs/operators';
-import { HttpClient } from '@angular/common/http';
 import { doc, Firestore, setDoc,query } from '@angular/fire/firestore';
 import { EqualityPassword } from '../lib/custom-validators-function';
 import { UserModel } from '../Models/other-person';
@@ -35,7 +34,6 @@ export class AuthService {
     private _storage: Storage,
     private snackBar: MatSnackBar,
     private _router: Router,
-    private _http: HttpClient,
     private _shared: SharedService,
 
   ) {
@@ -51,7 +49,7 @@ onAuthStateChanged(auth,(user)=>{
   this._router.navigate(['','login']);
   }
 })
- 
+
   }
   initLoginForm() {
     this.loginForm = this._fb.group({
