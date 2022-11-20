@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { SharedService } from 'src/app/Services/shared.service';
 
 @Component({
   selector: 'app-chat-item',
@@ -7,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ChatItemComponent implements OnInit {
   @Input() chat:any;
-  constructor() { }
+  constructor(public _shared:SharedService) { }
 
   ngOnInit(): void {
   }
