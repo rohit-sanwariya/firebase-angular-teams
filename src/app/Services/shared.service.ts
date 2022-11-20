@@ -78,4 +78,8 @@ export class SharedService {
       });
     }
   }
+
+  setUser(user:any){
+    this.user = user;
+  }
 }
