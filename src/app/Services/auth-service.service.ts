@@ -43,6 +43,7 @@ const auth = getAuth() ;
 onAuthStateChanged(auth,(user)=>{
   if(user){
     this._shared.currentUser = user as UserModel;
+    this._shared.getUserChats();
   }
   else{
     localStorage.clear();

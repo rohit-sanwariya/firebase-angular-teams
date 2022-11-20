@@ -11,7 +11,7 @@ export class UserChatsComponent implements OnInit {
   constructor(
     public _shared:SharedService
   ) {
-    this._shared.getUserChats();
+
   }
   onScroll(){
 

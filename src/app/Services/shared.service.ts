@@ -67,21 +67,15 @@ export class SharedService {
   }
 
   constructor(private _db: Firestore) {}
+
+
   async getUserChats() {
-    let timer: string | number | NodeJS.Timeout | undefined;
     if (this.currentUser) {
       const ref = doc(this._db, 'userChats', this.currentUser?.uid);
       from(getDoc(ref)).subscribe((val) => {
         this.userChats$.next(Object.values(val.data()!));
         this.chatsLoading = false;
-        clearTimeout(timer);
       });
-    } else {
-    timer =   setTimeout(() => {
-        this.getUserChats();
-      }, 1000);
     }
-    // const docs = await getDoc(ref);
-    // console.log(docs);
   }
 }
