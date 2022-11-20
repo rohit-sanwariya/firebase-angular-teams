@@ -12,11 +12,7 @@ import { SharedService } from 'src/app/Services/shared.service';
 export class SearchService {
 
 setOtherUser() {
-
-
   this._shared.setuser(this.searchUserControl.value);
-
-
   this.searchUserControl.reset();
 }
   searchUserControl:FormControl = new FormControl("",[])
