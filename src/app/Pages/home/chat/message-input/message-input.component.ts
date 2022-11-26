@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
+import { SharedService } from 'src/app/Services/shared.service';
 
 @Component({
   selector: 'app-message-input',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MessageInputComponent implements OnInit {
 
-  constructor() { }
+  constructor( public _shared:SharedService) { }
 
   ngOnInit(): void {
   }
+  handleImageUpload(input:HTMLInputElement){
+    input.click();
+  }
+  onKeyPress(event:KeyboardEvent){
+    if(event.key==="Enter"){
+      this._shared.sendMessage();
+    }
 
+  }
 }

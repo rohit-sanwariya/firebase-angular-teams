@@ -1,17 +1,19 @@
 <div class="message-input-container  container-flex justify-content-center align-items-center">
   <mat-form-field >
-    <textarea placeholder="Enter somehting...."  class="font-team font-4" name="" id=""  matInput
-    ></textarea>
+    <textarea (keypress)="onKeyPress($event)"  [(ngModel)]="_shared.messageText" placeholder="Enter somehting...."   class="font-team font-4" name="" id=""  matInput
+    >
+  </textarea>
 
     </mat-form-field>
     <div class="container-flex text-base h-100 ">
       <mat-icon class="mx-2 cursor-pointer">
         attachment
       </mat-icon>
-      <mat-icon class="mx-2 cursor-pointer">
+      <mat-icon class="mx-2 cursor-pointer" (click)="handleImageUpload(image)" >
         image
+        <input type="file" hidden #image (change)="_shared.onFileSelected($event)"  >
       </mat-icon>
-      <mat-icon class="mx-2 cursor-pointer">
+      <mat-icon class="mx-2 cursor-pointer" (click)="_shared.sendMessage()"  >
         send
       </mat-icon>
 

@@ -1,12 +1,8 @@
-<div #containerRef class="container-flex column w-100 messages ">
+<div #containerRef class="container-flex column w-100 messages " >
   <div infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50"
     [infiniteScrollContainer]="containerRef">
-    <app-message-item [self]="true"></app-message-item>
-    <app-message-item></app-message-item>
-    <app-message-item></app-message-item>
-    <app-message-item></app-message-item>
-    <app-message-item></app-message-item>
-    <app-message-item [self]="true"></app-message-item>
+    <app-message-item *ngFor="let chat of _shared.chatArray" [self]="chat.self" [chat]="chat"></app-message-item>
+
   </div>
 
 </div>

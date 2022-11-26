@@ -8,7 +8,9 @@ import { SharedService } from 'src/app/Services/shared.service';
 })
 export class ChatNavbarComponent implements OnInit {
 
-  constructor(public _shared:SharedService) { }
+  constructor(
+    public _shared:SharedService
+    ) { }
 
   ngOnInit(): void {
   }

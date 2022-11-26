@@ -1,16 +1,16 @@
-<div class="container navbar template-columns-6 bg-light justify-content-between align-items-center px-3  ">
+<div *ngIf="_shared.currentUser" class="container navbar template-columns-6 bg-light justify-content-between align-items-center px-3  ">
   <span class="text-white span-2 brand">Group Chat</span>
   <div class="user container-flex span-4">
-    <div class="user-img container-flex justify-content-center mx-1">
-      <img [src]="(_shared.currentUser )?_shared.currentUser.photoURL:'../../../../../../assets/dummy.jpg'" class="mr-2" alt="USER PROFILE">
+    <div   class="user-img container-flex justify-content-center mx-1">
+      <img [src]="_shared.currentUser.photoURL" class="mr-2" alt="USER PROFILE">
     </div>
     <div class="username text-white font-team mx-1">
-      {{_shared.currentUser?_shared.currentUser.displayName:'Rohit Sanwariya'}}
+      {{ _shared.currentUser.displayName|slice:0:5}}
     </div>
-   <div class="button-container span-2">
+    <div class="button-container span-2">
 
       <mat-icon class="text-white mx-1 mt-1 cursor-pointer" (click)="_auth.logOut()">logout</mat-icon>
 
-   </div>
+    </div>
   </div>
 </div>

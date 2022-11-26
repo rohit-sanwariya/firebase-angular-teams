@@ -171,8 +171,6 @@ onAuthStateChanged(auth,(user)=>{
   }
   onFileSelected(event: any) {
     this.selectedFile = event.target.files[0] ?? null;
-
-
   }
 }
 

@@ -8,7 +8,10 @@ import { SharedService } from 'src/app/Services/shared.service';
 })
 export class MessageItemComponent implements OnInit {
   @Input() self:boolean=false;
-  constructor(public _shared:SharedService) { }
+  @Input() chat:any;
+  constructor(public _shared:SharedService) {
+  
+  }
 
   ngOnInit(): void {
   }

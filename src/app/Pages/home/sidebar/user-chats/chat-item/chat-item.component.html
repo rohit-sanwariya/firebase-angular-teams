@@ -1,4 +1,4 @@
-<div (click)="_shared.setUser(chat.userInfo)" class="container template-columns-12 py-2 cursor-pointer">
+<div (click)="_shared.setUserExist(chat.userInfo)" class="container template-columns-12 py-2 cursor-pointer">
   <div class="chat-img-container mx-3 span-3">
     <img [src]="chat.userInfo.photoURL" alt="">
   </div>
@@ -8,7 +8,7 @@
 
     </div>
     <div class="chat-user-name text-white message-text">
-      I will call you back
+      {{chat.lastMessage?chat.lastMessage?.text:"No messages!!"}}
     </div>
   </div>
 </div>
