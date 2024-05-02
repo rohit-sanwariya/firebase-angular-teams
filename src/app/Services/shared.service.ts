@@ -97,11 +97,7 @@ export class SharedService {
       from(getDoc(ref)).subscribe({
         next: (userchats) => {
           let data = Object.values(userchats.data()!);
-        // //  console.log(data.sort((a,b)=>a.date.nanoseconds-b.date.nanoseconds));
-        //   console.log(data[0].date.nanoseconds,data[1].date.nanoseconds);
-        //   console.log(data[0].date.nanoseconds>data[1].date.nanoseconds);
-        //   console.log(data[0],data[1]);
-        // data =  data.sort((a,b)=>b.date.nanoseconds-a.date.nanoseconds)
+
         if(userchats.data())
      {
           console.log(data.length);
@@ -110,7 +106,6 @@ export class SharedService {
 
         }
 
-          // this.setUserExist(data[0].userInfo);
           this.chatsLoading = false;
 
         },
@@ -185,7 +180,6 @@ export class SharedService {
     const text = this.messageText;
     this.messageText = "";
     if (this.messageImg) {
-      // const imgRef = ref(this._db,)
       const storageRef = ref(getStorage(), uuid());
       const uploadTask = uploadBytesResumable(storageRef, this.messageImg);
       uploadTask.on(
