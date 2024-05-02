@@ -9,7 +9,7 @@ import {
   onAuthStateChanged
 } from '@angular/fire/auth';
 import { ref, uploadBytesResumable, getDownloadURL, Storage, } from '@angular/fire/storage';
-import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { EMPTY, from, of, throwError } from 'rxjs';
 import { Router } from '@angular/router';
 import { FirebaseError } from '@angular/fire/app';
